@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+<head>
+    <title>GhostNets</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+	<h2 class="page-title">Neues Netz melden</h2>
+    <div class="content-container">
+        <h:form>
+        
+            <div>
+                <table class="styled-table">
+                    <thead>
+                        <tr>
+                            <th>Personendaten</th>
+                            <th>Standort</th>
+                            <th>Größe in m (geschätzt)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <h:inputText styleClass="input" value="#{managedBean.name}" a:placeholder="Name*" /><br/>
+                                <h:inputText styleClass="input" value="#{managedBean.telephoneNumber}" a:placeholder="Telefonnummer" />
+                            </td>
+                            <td>
+                                <h:inputText styleClass="input" value="#{managedBean.latitude}" a:placeholder="Breitengrad*" /><br/>
+                                <h:inputText styleClass="input" value="#{managedBean.longitude}" a:placeholder="Längengrad*" /><br/>
+                            </td>
+                            <td>
+                                <h:inputText styleClass="input" value="#{managedBean.size}" a:placeholder="Größe in m (geschätzt)*" /><br/>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+			<div class="message-box">
+				<h:messages styleClass="message" id="messages" globalOnly="true" />
+			</div>
+            <div class="button-container">
+                <h:commandButton styleClass="button button-left" value="Zurück zur Startseite" action="index.xhtml" />
+                <h:commandButton styleClass="button button-right" value="Angaben speichern" action="#{managedBean.saveGhostNet}">
+                    <f:setPropertyActionListener target="#{managedBean.status}" value="gemeldet" />
+                </h:commandButton>
+            </div>
+        </h:form>
+    </div>
+</body>
+</html>

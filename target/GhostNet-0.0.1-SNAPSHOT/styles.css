@@ -1,0 +1,97 @@
+/* styles.css */
+
+#map {
+    width: 1000px;
+    height: 600px; /* Adjust as needed */
+    margin: auto;
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+/* Ergänzungen zu Ihrem vorhandenen styles.css */
+
+.flex-row-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: auto; /* Passen Sie dies nach Bedarf an */
+    margin: auto;
+    padding: 20px;
+}
+
+.content-container {
+    flex: 1; /* Sorgt dafür, dass beide Container gleich groß sind */
+    margin: 10px; /* Gibt jedem Container einen kleinen Abstand */
+}
+
+
+.page-title {
+    color: #333;
+    font-size: 28px;
+    text-align: center;
+}
+
+.styled-table {
+    width: auto; /* or any width less than 100% */
+    margin: 20px auto;
+    border-collapse: collapse;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+
+.styled-table th,
+.styled-table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+.styled-table th {
+    background-color: #008CBA;
+    color: #fff;
+}
+
+.styled-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    color: #fff;
+    background-color: #008CBA;
+    border: none;
+    border-radius: 20px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.button-container-left {
+    display: flex;
+    justify-content: flex-start; /* Links ausrichten */
+    margin-top: 20px;
+    gap: 20px;
+}
+
+.button:hover {
+    background-color: #007B9A;
+}
+
+.button-left {
+    margin-right: 10px; /* Adjust as needed */
+}
+
+.button-right {
+    margin-left: 10px; /* Adjust as needed */
+}

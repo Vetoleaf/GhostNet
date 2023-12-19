@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+<head>
+    <title>Ausgewähltes Netz</title>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+    </style>
+    <h:head />
+</head>
+<body>
+	<div class="flex-row-container">
+    	<div class="content-container">
+            <h2 class="page-title">Ausgewähltes Netz</h2>
+            <h:form>
+                <h:dataTable value="#{managedBean.retrieveOneNet}" var="net" styleClass="styled-table" >
+                    <h:column>
+                        <f:facet name="header">Name des Meldenden</f:facet>
+                        #{net[6]}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Telefonnummer</f:facet>
+                        #{net[7]}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Rolle</f:facet>
+                        #{net[8]}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Breitengrad</f:facet>
+                        #{net[1]}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Längengrad</f:facet>
+                        #{net[2]}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Größe in m (geschätzt)</f:facet>
+                        #{net[3]}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Erstellt am</f:facet>
+                        <h:outputText value="#{net[4]}">
+                            <f:convertDateTime pattern="dd.MM.yyyy HH:mm:ss" timeZone="Europe/Berlin" />
+                        </h:outputText>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Status</f:facet>
+                        #{net[5]}
+                    </h:column>
+                </h:dataTable>
+            </h:form>
+        </div>
+
+        <div class="content-container">
+            <h2 class="page-title">Zeitpunkt der Meldung</h2>
+            <h:form>
+                <h:dataTable value="#{managedBean.retrieveOneNet}" var="net" styleClass="styled-table" >
+                    <h:column>
+                        <f:facet name="header">Name des Meldenden</f:facet>
+                        #{net[6]}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Telefonnummer</f:facet>
+                        #{net[7]}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Rolle</f:facet>
+                        #{net[8]}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Breitengrad</f:facet>
+                        #{net[1]}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Längengrad</f:facet>
+                        #{net[2]}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Größe in m (geschätzt)</f:facet>
+                        #{net[3]}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Erstellt am</f:facet>
+                        <h:outputText value="#{net[4]}">
+                            <f:convertDateTime pattern="dd.MM.yyyy HH:mm:ss" timeZone="Europe/Berlin" />
+                        </h:outputText>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Status</f:facet>
+                        <h:outputText value="gemeldet"></h:outputText>
+                    </h:column>
+                </h:dataTable>
+            </h:form>
+    	</div>
+    </div>
+    
+   <div class="flex-row-container">
+    	<div class="content-container">
+            <h2 class="page-title">Für Bergung Eintragen</h2>
+            <h:form>
+                <h:dataTable value="#{managedBean.retrieveOneNet}" var="net" styleClass="styled-table" >
+                    <h:column>
+                        <f:facet name="header">Name</f:facet>
+                        <h:inputText value="#{managedBean.rescuerName}" a:placeholder="Name*" />
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Telefonnummer</f:facet>
+                        <h:inputText value="#{managedBean.rescuerPhone}" a:placeholder="Telefonnummer*" />
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Rolle</f:facet>
+                        <h:outputText value="bergende Person" />
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Breitengrad</f:facet>
+                        #{net[1]}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Längengrad</f:facet>
+                        #{net[2]}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Größe in m (geschätzt)</f:facet>
+                        #{net[3]}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Status</f:facet>
+                        <h:selectOneMenu value="#{managedBean.status}">
+                            <f:selectItem itemValue="in bergung" itemLabel="In Bergung"/>
+                            <f:selectItem itemValue="geborgen" itemLabel="Geborgen"/>
+                            <f:selectItem itemValue="verschollen" itemLabel="Verschollen"/>
+                        </h:selectOneMenu>
+                    </h:column>
+                </h:dataTable>
+                <div class="message-box">
+					<h:messages styleClass="message" id="messages" globalOnly="true" />
+				</div>
+                <div class="button-container-left">
+			        <h:commandButton styleClass="button" value="Änderungen Speichern" action="#{managedBean.saveRescueInfo}" />
+			        <h:commandButton styleClass="button" value="Zurück zur Startseite" action="index.xhtml" />
+			    </div>
+            </h:form>
+        </div>
+
+       <div class="content-container">
+            <h2 class="page-title">Bergungsversuche</h2>
+            <h:form>
+                <h:dataTable value="#{managedBean.allRescuers}" var="net" styleClass="styled-table" >
+                    <h:column>
+                        <f:facet name="header">Name des Bergenden</f:facet>
+                        #{net[0]}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Telefonnummer</f:facet>
+                        #{net[1]}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Rolle</f:facet>
+                        #{net[2]}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Breitengrad</f:facet>
+                        #{net[5]}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Längengrad</f:facet>
+                        #{net[6]}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Größe in m (geschätzt)</f:facet>
+                        #{net[7]}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Erstellt am</f:facet>
+                        <h:outputText value="#{net[4]}">
+                            <f:convertDateTime pattern="dd.MM.yyyy HH:mm:ss" timeZone="Europe/Berlin" />
+                        </h:outputText>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Status</f:facet>
+                        #{net[3]}
+                    </h:column>
+                </h:dataTable>
+                <h:outputText value="Bisher keine Daten vorhanden" rendered="#{empty managedBean.allRescuers}" />
+            </h:form>
+        </div>
+    </div>
+</body>
+</html>
