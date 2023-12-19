@@ -18,5 +18,7 @@ Users can track the status and location of reported ghost nets in real-time.
 Technologies Used:
 
 Frontend: xhtml, css, JSF
+
 Backend: Java, JSF
+
 Database: PostgreSQL
