@@ -6,9 +6,14 @@ The Ghost Net Tracker is a web application developed to address the pressing env
 
 Features:
 
-Net Reporting: Users can report ghost nets by providing GPS coordinates, estimated size, and current status.
-Net Retrieval Coordination: The app connects the general public, who often encounter ghost nets, with professional retrieval teams responsible for their removal.
-Real-Time Tracking: Users can track the status and location of reported ghost nets in real-time.
+Net Reporting:
+Users can report ghost nets by providing GPS coordinates, estimated size, and current status.
+
+Net Retrieval Coordination: 
+The app connects the general public, who often encounter ghost nets, with professional retrieval teams responsible for their removal.
+
+Real-Time Tracking: 
+Users can track the status and location of reported ghost nets in real-time.
 
 Technologies Used:
 
